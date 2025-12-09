@@ -36,6 +36,8 @@
     "build:vscode": "node scripts/build_vscode_companion.js",
     "build:all": "npm run build && npm run build:sandbox && npm run build:vscode",
     "build:packages": "npm run build --workspaces",
+    "build:node-binary": "node scripts/build_node_binary.js",
+    "build:bun-binary": "node scripts/build_bun_binary.js",
     "build:sandbox": "node scripts/build_sandbox.js",
     "bundle": "npm run generate && node esbuild.config.js && node scripts/copy_bundle_assets.js",
     "test": "npm run test --workspaces --if-present",

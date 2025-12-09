@@ -18,6 +18,15 @@ export interface PtyProcess {
 }
 
 export const getPty = async (): Promise<PtyImplementation> => {
+  // Bun does not support node-pty's native bindings.
+  if (
+    typeof process !== 'undefined' &&
+    process.versions &&
+    process.versions['bun']
+  ) {
+    return null;
+  }
+
   try {
     const lydell = '@lydell/node-pty';
     const module = await import(lydell);

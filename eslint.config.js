@@ -35,6 +35,7 @@ export default tseslint.config(
       'package/bundle/**',
       '.integration-tests/**',
       'dist/**',
+      'sea-launcher.js',
     ],
   },
   eslint.configs.recommended,

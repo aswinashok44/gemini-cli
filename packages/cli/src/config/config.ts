@@ -77,6 +77,13 @@ export interface CliArgs {
 }
 
 export async function parseArguments(settings: Settings): Promise<CliArgs> {
+  if (
+    process.argv.length > 2 &&
+    process.argv[0] === 'bun' &&
+    process.argv[1] === process.argv[2]
+  ) {
+    process.argv.splice(2, 1);
+  }
   const rawArgv = hideBin(process.argv);
   const yargsInstance = yargs(rawArgv)
     .locale('en')
